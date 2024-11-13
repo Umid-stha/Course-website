@@ -2,17 +2,17 @@
 
 Tech Stack:
 
-- [Django](https://djangoproject.com) v5.1
-- [Python](https://python.org) v3.12 
-- [HTMX](https://htmx.org)
-- [django-htmx](https://github.com/adamchainz/django-htmx)
-- [tailwind](https://tailwindcss.com)
-- [django-tailwind](https://django-tailwind.readthedocs.io/en/latest/installation.html)
-- [Flowbite](https://flowbite.com)
-- [Cloudinary](https://cld.media/cfe)
+- [Django]
+- [Python] 
+- [HTMX]
+- [django-htmx]
+- [tailwind]
+- [django-tailwind]
+- [Flowbite]
+- [Cloudinary]
 
 ## Overview
-What we are building
+What I am building
 
 - Courses:
 	- Title
