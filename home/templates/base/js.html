@@ -1,0 +1,30 @@
+{% load django_htmx %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cloudinary-video-player/2.1.0/cld-video-player.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cloudinary-video-player/2.1.0/cld-video-player.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://unpkg.com/htmx.org@2.0.3" integrity="sha384-0895/pl2MU10Hqc6jd4RvrthNlDiE9U1tWmX7WRESftEDRosgxNsQG/Ze9YMRzHq" crossorigin="anonymous"></script>
+{% django_htmx_script %}
+<script  defer>
+    function renderVideos(videoPlayerEl){
+        const videoPlayerID = 'video-id-' + Math.random().toString(36).substr(2,9)
+        videoPlayerEl.setAttribute("id", videoPlayerID)
+        const cloudName = videoPlayerEl.dataset.cloudName
+        const videoUrl = videoPlayerEl.dataset.videoUrl
+        
+        if (cloudName && videoUrl){
+            console.log(cloudName, videoUrl, videoPlayerID)
+            const cld = cloudinary.videoPlayer(videoPlayerID, {cloudName:cloudName})
+            cld.source(videoUrl)
+        }
+    }
+
+    function renderAllVideos(){
+        const videoPlayerElement = document.getElementsByClassName('player')
+        console.log(videoPlayerElement)
+        for( let el of videoPlayerElement){
+            renderVideos(el)
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', renderAllVideos)
+    
+</script>
